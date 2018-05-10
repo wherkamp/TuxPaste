@@ -1,3 +1,6 @@
 RewriteEngine On
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^post/(file|text)/?$ index.php?post=$1
+RewriteRule ^paste/(.*)/?$ index.php?paste=$1
+RewriteRule ^installed/?$ index.php?installed=true
