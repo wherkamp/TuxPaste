@@ -5,11 +5,6 @@
  * Date: 5/9/2018
  * Time: 11:33 AM
  */
-$ujA2Mx3e5bthGp4y = $config->host;
-$v7YLkqPVAy7FqTN5 = $config->dbuser;
-$xgyXZVLFaaaaV42 = $config->dbpass;
-$a4BqsH8A6v7xE7xR = $config->db;
-$conn = mysqli_connect($ujA2Mx3e5bthGp4y, $v7YLkqPVAy7FqTN5, $xgyXZVLFaaaaV42, $a4BqsH8A6v7xE7xR);
-if (!$conn) {
-    die("Oof! Something went wrong, check your values in config.php... Here is the full error: " . mysqli_connect_error());
-}
+$conn = new PDO("mysql:host=$config->host;dbname=$config->db", $config->dbuser, $config->dbpass);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
